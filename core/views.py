@@ -21,12 +21,12 @@ def home(request):
 
     # Category display with product counts
     categories = [
-        {"key": "educational",    "label": "Educational",       "icon": "📚"},
-        {"key": "remote_control", "label": "Remote Control",    "icon": "🚗"},
-        {"key": "soft_toys",      "label": "Soft Toys",         "icon": "🧸"},
-        {"key": "outdoor",        "label": "Outdoor Toys",      "icon": "⚽"},
-        {"key": "puzzles",        "label": "Puzzles & Board",   "icon": "🧩"},
-        {"key": "action_figures", "label": "Action Figures",    "icon": "🦸"},
+        {"key": "almonds",    "label": "Almonds",         "icon": "🥜"},
+        {"key": "cashews",    "label": "Cashews",         "icon": "🌰"},
+        {"key": "pistachios", "label": "Pistachios",      "icon": "💚"},
+        {"key": "walnuts",    "label": "Walnuts",         "icon": "🤎"},
+        {"key": "raisins",    "label": "Raisins & Dates", "icon": "🍇"},
+        {"key": "mix_seeds",  "label": "Seeds & Mixes",   "icon": "🌱"},
     ]
 
     context = {
@@ -101,12 +101,12 @@ def products(request, product_cat=None):
         "sort":         sort,
         "wishlist_ids": [str(i) for i in wishlist_ids],
         "categories": [
-            ("educational",    "Educational"),
-            ("remote_control", "Remote Control"),
-            ("soft_toys",      "Soft Toys"),
-            ("outdoor",        "Outdoor Toys"),
-            ("puzzles",        "Puzzles & Board"),
-            ("action_figures", "Action Figures"),
+            ("almonds",    "Almonds"),
+            ("cashews",    "Cashews"),
+            ("pistachios", "Pistachios"),
+            ("walnuts",    "Walnuts"),
+            ("raisins",    "Raisins & Dates"),
+            ("mix_seeds",  "Seeds & Mixes"),
         ],
         "age_groups": [
             ("0-3", "0–3 Years"),

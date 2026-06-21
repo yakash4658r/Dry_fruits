@@ -12,12 +12,12 @@ class Product(models.Model):
 
     # Category choices
     CATEGORY_CHOICES = [
-        ("educational", "Educational"),
-        ("remote_control", "Remote Control"),
-        ("soft_toys", "Soft Toys"),
-        ("outdoor", "Outdoor Toys"),
-        ("puzzles", "Puzzles & Board Games"),
-        ("action_figures", "Action Figures"),
+        ("almonds", "Almonds"),
+        ("cashews", "Cashews"),
+        ("pistachios", "Pistachios"),
+        ("walnuts", "Walnuts"),
+        ("raisins", "Raisins & Dates"),
+        ("mix_seeds", "Seeds & Mixes"),
     ]
 
     # Age group choices

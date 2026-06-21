@@ -25,9 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path("",include("core.urls")),
+    path("",include("core.api_urls")),   # React REST API endpoints
     path("",include("cart.urls")),
     path("payment/",include("payment.urls")),
-
 
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
