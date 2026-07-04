@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Dashboard - Nectar & Nut</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #050D0B; color: #FAF8F5; padding: 40px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #D4AF37; font-weight: 300; margin-bottom: 30px; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding-bottom: 20px; }
+        .filter-bar { margin-bottom: 20px; display: flex; gap: 15px; align-items: center; }
+        select, button { padding: 8px 16px; border-radius: 4px; border: 1px solid rgba(212, 175, 55, 0.5); background: transparent; color: #FAF8F5; }
+        button { background: #D4AF37; color: #050D0B; cursor: pointer; font-weight: 600; border: none; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: rgba(10, 46, 40, 0.5); border-radius: 8px; overflow: hidden; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(250, 248, 245, 0.1); }
+        th { color: #D4AF37; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        .status-form { display: flex; gap: 10px; }
+        a { color: #D4AF37; text-decoration: none; }
+        .back-link { display: inline-block; margin-bottom: 20px; opacity: 0.7; }
+        .back-link:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/admin/" class="back-link">← Back to Admin Panel</a>
+        <h1>Order Dashboard</h1>
+        
+        <form class="filter-bar" method="GET">
+            <label for="status">Filter by Status:</label>
+            <select name="status" id="status">
+                <option value="">All Orders</option>
+                {% for val, label in status_choices %}
+                    <option value="{{ val }}" {% if status_filter == val %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Update Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.user.username }}<br><small>{{ order.user.email }}</small></td>
+                    <td>{{ order.ordered_date|date:"M d, Y H:i" }}</td>
+                    <td>₹{{ order.total_amount }}</td>
+                    <td>{{ order.get_status_display }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'update_order_status' order.id %}" class="status-form">
+                            {% csrf_token %}
+                            <select name="status">
+                                {% for val, label in status_choices %}
+                                    <option value="{{ val }}" {% if order.status == val %}selected{% endif %}>{{ label }}</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" style="text-align: center; padding: 40px; color: #888;">No orders found matching the criteria.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        {% if orders.has_other_pages %}
+        <div style="margin-top: 30px; display: flex; gap: 10px;">
+            {% if orders.has_previous %}
+                <a href="?page={{ orders.previous_page_number }}{% if status_filter %}&status={{ status_filter }}{% endif %}">« Prev</a>
+            {% endif %}
+            
+            <span>Page {{ orders.number }} of {{ orders.paginator.num_pages }}</span>
+            
+            {% if orders.has_next %}
+                <a href="?page={{ orders.next_page_number }}{% if status_filter %}&status={{ status_filter }}{% endif %}">Next »</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

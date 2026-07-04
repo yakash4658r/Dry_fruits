@@ -45,6 +45,7 @@ const TICKER_ITEMS = [
 
 export default function CinematicHome() {
   const [products, setProducts] = useState([])
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const { addToCart } = useCartStore()
   const heroRef = useRef()
 
@@ -61,6 +62,10 @@ export default function CinematicHome() {
     api.get('/api/home/').then(r => {
       setProducts(r.data.featured_products || [])
     })
+
+    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const handleAdd = async (id) => {
@@ -69,12 +74,18 @@ export default function CinematicHome() {
 
   return (
     <div className={styles.page}>
-      {/* Background Image Sequence Canvas */}
-      <ImageSequenceCanvas 
-        folder="/duck"
-        prefix="ezgif-frame-"
-        padCount={3}
-      />
+      {/* Background Image Sequence Canvas (Desktop Only) */}
+      {!isMobile && (
+        <div className={styles.desktopOnly}>
+          <ImageSequenceCanvas 
+            folder="/duck"
+            prefix="ezgif-frame-"
+            padCount={3}
+          />
+        </div>
+      )}
+      {/* Mobile Global Static Background */}
+      <div className={styles.mobileOnlyGlobalBg}></div>
 
       {/* ════════════════════════════════
           DAWN SECTION (Hero Video)
@@ -84,16 +95,28 @@ export default function CinematicHome() {
         ref={heroRef}
         style={{ opacity: heroOpacity }}
       >
-        {/* Auto-playing banner video for the initial hero */}
+        {/* Auto-playing banner video (Desktop) & Static Fallback (Mobile) */}
         <div className={styles.heroVideoContainer}>
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className={styles.heroVideo}
-            src="/Banner_video.mp4"
-          />
+          
+          <div className={styles.desktopOnly}>
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className={styles.heroVideo}
+              src="/Banner_video.mp4"
+            />
+          </div>
+          
+          <div className={styles.mobileOnly}>
+            <img 
+              src="/animations/hero_mobile_static.png" 
+              alt="Premium Dry Fruits" 
+              className={styles.heroMobileImg}
+            />
+          </div>
+
           <div className={styles.heroVideoOverlay} />
         </div>
 
@@ -193,44 +216,139 @@ export default function CinematicHome() {
       {/* ════════════════════════════════
           SCROLLYTELLING PRODUCT COLLECTION
           ════════════════════════════════ */}
+      <div className={styles.scrollyBgContainer}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10, 46, 40, 0.3), rgba(5, 13, 11, 0.95))', zIndex: -1, pointerEvents: 'none' }} />
       <ScrollyCollection products={products} categories={CATEGORIES} />
 
       {/* ════════════════════════════════
-          NIGHT SECTION
+          STORY SECTION (Scarcity Principle)
           ════════════════════════════════ */}
-      <section className={styles.night}>
-        <div className={styles.nightVideo} />
-        <div className={styles.nightOrb1} />
-        <div className={styles.nightOrb2} />
-
-        <motion.div
-          className={styles.nightContent}
-          style={{ y: nightY }}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <motion.span
-            className={styles.nightEye}
-            animate={{ rotate: [0, 5, -5, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-          >
-            🌙
-          </motion.span>
-
-          <h2 className={styles.nightTitle}>
-            Eat what the earth<br />
-            <strong>intended.</strong>
-          </h2>
-
-          <br/><br/>
-          <Link to="/products" className={`${styles.dawnBtn} ${styles.dawnBtnPrimary}`}
-            style={{ fontSize: '1rem', padding: '17px 50px' }}>
-            Begin Your Ritual
-          </Link>
-        </motion.div>
+      <section className={styles.storySection}>
+        <div className={styles.storyContent}>
+          <div className={styles.storyTextCol}>
+            <h2 className={styles.storyTitle}>
+              Founded on the<br />
+              principle of<br />
+              <em>uncompromising<br />scarcity.</em>
+            </h2>
+            <p className={styles.storyDesc}>
+              NECTAR & NUT began in a single atelier with one conviction: treat the world's finest nuts and dried fruits with the reverence reserved for rare gemstones.
+            </p>
+            <p className={styles.storyDesc}>
+              We work only with small-hold farmers who preserve heritage species, ensuring that every piece delivers an unparalleled tasting experience.
+            </p>
+          </div>
+          <div className={styles.storyImageCol}>
+            <img src="/animations/heritage_sorting.png" alt="Luxury sorting of dry fruits" className={styles.storyImage} />
+          </div>
+        </div>
       </section>
+
+      {/* ════════════════════════════════
+          GIFTING SECTION
+          ════════════════════════════════ */}
+      <section className={styles.giftingSection}>
+        <div className={styles.giftingContent}>
+          <div className={styles.giftingImageCol}>
+            <picture>
+              <source media="(max-width: 768px)" srcSet="/animations/home_gifting_mobile.png" />
+              <img src="/animations/home_gifting.png" alt="Luxury Gifting" className={styles.giftingImage} />
+            </picture>
+          </div>
+          <div className={styles.giftingTextCol}>
+            <h2 className={styles.giftingTitle}>
+              The Art of<br/>
+              <em>Gifting.</em>
+            </h2>
+            <p className={styles.giftingDesc}>
+              Elevate your corporate or personal gifting with our bespoke bento boxes. Each box is a masterclass in luxury, filled with hand-selected, premium dry fruits and nuts that leave a lasting impression.
+            </p>
+            <p className={styles.giftingDesc}>
+              Perfect for festive seasons, weddings, and exclusive corporate events. Experience gifting that speaks volumes of your exquisite taste.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      
+      {/* ════════════════════════════════
+          NUTRITION SECTION
+          ════════════════════════════════ */}
+      <section className={styles.nutritionSection}>
+        <div className={styles.nutritionContent}>
+          <div className={styles.nutTextCol}>
+            <span className={styles.timeLabel}>VITALITY</span>
+            <h2 className={styles.duskTitle}>
+              Unrivaled<br />
+              <span className={styles.dawnItalic}>Nutrition.</span>
+            </h2>
+            <p className={styles.giftingDesc}>
+              Every nut is a powerhouse of essential vitamins, minerals, and heart-healthy fats. Our slow-drying process ensures that the nutritional integrity of every harvest is preserved flawlessly from tree to table.
+            </p>
+            <div className={styles.nutStats}>
+              <div className={styles.nutStatItem}>
+                <h4>Rich in Omega-3</h4>
+                <p>Essential for cognitive function and heart health.</p>
+              </div>
+              <div className={styles.nutStatItem}>
+                <h4>High Antioxidants</h4>
+                <p>Combats oxidative stress and promotes cellular health.</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.nutImageCol}>
+            {/* Responsive image */}
+            <picture>
+              <source media="(max-width: 768px)" srcSet="/animations/about_quality_mobile.png" />
+              <img src="/animations/about_quality.png" alt="Nutritional Quality" className={styles.nutImage} />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════
+          HARVEST SEASONS
+          ════════════════════════════════ */}
+      <section className={styles.harvestSection}>
+        <div className={styles.harvestHeader}>
+          <h2 className={styles.giftingTitle}>The Cycle of <em>Nature.</em></h2>
+          <p className={styles.giftingDesc}>We follow the earth's natural rhythm. We do not force nature; we wait for it to offer its finest.</p>
+        </div>
+        <div className={styles.harvestGrid}>
+          <div className={styles.harvestCard}>
+            <h3>Spring Blossom</h3>
+            <p>Our almond orchards awake, setting the stage for the year's harvest.</p>
+          </div>
+          <div className={styles.harvestCard}>
+            <h3>Summer Sun</h3>
+            <p>Pistachios soak in the intense summer heat, developing their signature rich flavor.</p>
+          </div>
+          <div className={styles.harvestCard}>
+            <h3>Autumn Harvest</h3>
+            <p>The peak season. Walnuts and cashews are hand-plucked and immediately shade-dried.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════
+          INNER CIRCLE TESTIMONIALS
+          ════════════════════════════════ */}
+      <section className={styles.testimonialSection}>
+        <div className={styles.testimonialContainer}>
+          <h2 className={styles.giftingTitle} style={{ textAlign: 'center' }}>Words of the <em>Ritualists.</em></h2>
+          <div className={styles.testimonialGrid}>
+            <div className={styles.testiCard}>
+              <p className={styles.testiQuote}>"The best pistachios I've ever tasted. The crunch is unbelievable and the packaging is stunning."</p>
+              <div className={styles.testiAuthor}>- Arjun K., Fitness Enthusiast</div>
+            </div>
+            <div className={styles.testiCard}>
+              <p className={styles.testiQuote}>"Finally, a brand that doesn't compromise on quality. The Medjool dates are simply melt-in-your-mouth."</p>
+              <div className={styles.testiAuthor}>- Meera S., Nutritionist</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* ════════════════════════════════
           FINAL CTA BAND
@@ -265,6 +383,7 @@ export default function CinematicHome() {
             Shop Now →
           </Link>
         </motion.div>
+      </div>
       </div>
 
     </div>

@@ -80,6 +80,6 @@ admin.site.register(CustomerForm, CustomerFormAdmin)
 # ─────────────────────────────────────────────
 # Customize admin site branding
 # ─────────────────────────────────────────────
-admin.site.site_header  = "🧸 ToyZone Admin"
-admin.site.site_title   = "ToyZone Admin Panel"
-admin.site.index_title  = "Welcome to ToyZone Dashboard"
+admin.site.site_header  = "🌰 Nectar & Nut Admin"
+admin.site.site_title   = "Nectar & Nut Admin Panel"
+admin.site.index_title  = "Welcome to Nectar & Nut Dashboard"

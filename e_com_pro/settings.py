@@ -304,10 +304,10 @@ LOGGING = {
 from django.urls import reverse_lazy
 
 UNFOLD = {
-    "SITE_TITLE": "ToyZone Admin",
-    "SITE_HEADER": "ToyZone",
+    "SITE_TITLE": "Nectar & Nut Admin",
+    "SITE_HEADER": "Nectar & Nut",
     "SITE_URL": "/",
-    "SITE_ICON": "🧸",
+    "SITE_ICON": "🌰",
     "COLORS": {
         "primary": {
             "50": "#fff8e6",
@@ -315,7 +315,7 @@ UNFOLD = {
             "200": "#ffdd99",
             "300": "#ffcc66",
             "400": "#ffbb33",
-            "500": "#ffb703",  # ToyZone Primary (Yellow)
+            "500": "#D4AF37",  # Gold
             "600": "#e6a400",
             "700": "#b38000",
             "800": "#805c00",

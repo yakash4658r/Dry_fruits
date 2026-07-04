@@ -19,10 +19,10 @@ export default function ScrollVideo({
       start: "top top",
       end: endOffset,
       pin: true,
-      onEnter: () => video.play().catch(() => {}),
-      onEnterBack: () => video.play().catch(() => {}),
-      onLeave: () => video.pause(),
-      onLeaveBack: () => video.pause(),
+      onEnter: () => videoRef.current?.play().catch(() => {}),
+      onEnterBack: () => videoRef.current?.play().catch(() => {}),
+      onLeave: () => videoRef.current?.pause(),
+      onLeaveBack: () => videoRef.current?.pause(),
     })
 
     ScrollTrigger.refresh()

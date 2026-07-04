@@ -1,0 +1,367 @@
+.productsPage {
+  background: #050D0B;
+  color: #FAF8F5;
+  min-height: 100vh;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+}
+
+.heroBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5,13,11,0.5) 0%, rgba(5,13,11,1) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 24px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: #FAF8F5;
+  margin-bottom: 24px;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.heroDesc {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(250, 248, 245, 0.7);
+  font-weight: 300;
+}
+
+/* ── LAYOUT ── */
+.container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px clamp(24px, 5vw, 80px);
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: sticky;
+  top: 120px;
+  height: max-content;
+}
+
+.filterGroup {
+  margin-bottom: 50px;
+}
+
+.filterGroup h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(212,175,55,0.2);
+  padding-bottom: 12px;
+}
+
+.categoryList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoryList li {
+  cursor: pointer;
+  color: rgba(250, 248, 245, 0.6);
+  font-size: 1.05rem;
+  font-weight: 300;
+  transition: all 0.3s ease;
+  padding: 4px 0;
+}
+
+.categoryList li:hover {
+  color: #FAF8F5;
+  padding-left: 8px;
+}
+
+.categoryList li.active {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.sortSelect {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(212,175,55,0.3);
+  color: #FAF8F5;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+}
+
+.sortSelect option {
+  background: #0A1A16;
+  color: #FAF8F5;
+}
+
+/* ── MAIN & GRID ── */
+.main {
+  min-height: 50vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* ── STATES ── */
+.loader {
+  text-align: center;
+  padding: 100px 0;
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.noResults {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.noResults p {
+  font-size: 1.2rem;
+  color: rgba(250,248,245,0.7);
+  margin-bottom: 24px;
+}
+
+.noResults button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 32px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.noResults button:hover {
+  background: var(--gold);
+  color: #050D0B;
+}
+
+/* ── PAGINATION ── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(212,175,55,0.15);
+}
+
+.pagination button {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 16px;
+  transition: opacity 0.3s;
+}
+
+.pagination button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 0.9rem;
+  color: rgba(250, 248, 245, 0.5);
+  font-weight: 300;
+}
+
+/* ── PROMISE BAND ── */
+.promiseBand {
+  background: rgba(10, 46, 40, 0.3);
+  border-top: 1px solid rgba(212,175,55,0.1);
+  padding: 60px 0;
+}
+
+.promiseGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.promiseIcon {
+  font-size: 2rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.promiseItem h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #FAF8F5;
+  margin-bottom: 8px;
+}
+
+.promiseItem p {
+  font-size: 0.95rem;
+  color: rgba(250, 248, 245, 0.6);
+  font-weight: 300;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .sidebar {
+    position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .filterGroup {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .promiseGrid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+
+/* ── HEALTH SECTION ── */
+.healthSection {
+  padding: 120px 0;
+  background: linear-gradient(to top, #050D0B, rgba(10,46,40,0.1), #050D0B);
+  border-top: 1px solid rgba(212,175,55,0.1);
+}
+
+.healthContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.healthTextCol {
+  max-width: 500px;
+}
+
+.healthTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+.healthTitle em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.healthDesc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(250, 248, 245, 0.7);
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.healthImageCol {
+  position: relative;
+  width: 100%;
+}
+
+.healthImage {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .healthContent {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}

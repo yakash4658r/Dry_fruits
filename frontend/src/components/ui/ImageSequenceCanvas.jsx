@@ -66,18 +66,8 @@ export default function ImageSequenceCanvas({
           offsetY = (canvas.height - drawHeight) / 2
         } else {
           // Canvas is taller than image (Mobile portrait or narrow desktop)
-          if (window.innerWidth <= 768) {
-            // For mobile, we don't want to crop the sides massively.
-            // Match the heroVideo 55% height / 15% top logic.
-            drawHeight = canvas.height * 0.55
-            drawWidth = drawHeight * imgRatio
-            offsetX = (canvas.width - drawWidth) / 2
-            offsetY = canvas.height * 0.15
-          } else {
-            // Normal desktop narrow
-            drawWidth = canvas.height * imgRatio
-            offsetX = (canvas.width - drawWidth) / 2
-          }
+          drawWidth = canvas.height * imgRatio
+          offsetX = (canvas.width - drawWidth) / 2
         }
 
         context.clearRect(0, 0, canvas.width, canvas.height)

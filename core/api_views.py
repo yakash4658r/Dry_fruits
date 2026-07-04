@@ -224,3 +224,25 @@ def api_user(request):
             "is_superuser":  request.user.is_superuser,
         })
     return JsonResponse({"authenticated": False})
+
+
+# ─────────────────────────────────────────────
+# POST /api/contact/
+# ─────────────────────────────────────────────
+@ensure_csrf_cookie
+@require_POST
+def api_contact(request):
+    """Handle contact form submission."""
+    from .models import CustomerForm
+    try:
+        data = json.loads(request.body)
+        CustomerForm.objects.create(
+            name     = data.get("name", ""),
+            email    = data.get("email", ""),
+            phone_no = 0,
+            subject  = data.get("subject", "Frontend Inquiry"),
+            message  = data.get("message", ""),
+        )
+        return JsonResponse({"status": "success", "message": "Message sent."})
+    except Exception as e:
+        return JsonResponse({"status": "error", "message": str(e)}, status=400)

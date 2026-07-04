@@ -21,7 +21,7 @@ export default function ScrollyCollection({ products, categories }) {
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
-        end: `+=${items.length * 1500}`, // 1500px scroll duration per product
+        end: `+=${items.length * 1200}`, // 1200px scroll duration per product
         pin: true,
         scrub: 1,
       }
@@ -30,32 +30,41 @@ export default function ScrollyCollection({ products, categories }) {
     // Animation logic
     panelsRef.current.forEach((panel, i) => {
       if (!panel) return
+      
+      const textSide = panel.querySelector(`.${styles.textSide}`)
+      const imgSide = panel.querySelector(`.${styles.imageSide}`)
 
       if (i === 0) {
         // First panel starts visible
-        gsap.set(panel, { opacity: 1, visibility: 'visible', x: 0 })
+        gsap.set(panel, { visibility: 'visible' })
+        gsap.set(textSide, { opacity: 1, y: 0 })
+        gsap.set(imgSide, { opacity: 1, scale: 1 })
         
         // Pause to play animation (dummy scroll distance)
         tl.to({}, { duration: 1 })
         
-        // Slide out to left
+        // Slide out
         if (items.length > 1) {
-          tl.to(panel, { x: '-50%', opacity: 0, duration: 1 }, "out" + i)
+          tl.to(textSide, { y: -80, opacity: 0, duration: 1, ease: "power2.inOut" }, "out" + i)
+          tl.to(imgSide, { scale: 1.1, opacity: 0, duration: 1, ease: "power2.inOut" }, "out" + i)
         }
       } else {
-        // Subsequent panels slide in from right
-        tl.fromTo(panel, 
-          { x: '50%', opacity: 0, visibility: 'visible' },
-          { x: '0%', opacity: 1, duration: 1 },
-          "out" + (i - 1) // Slide in exactly when previous slides out
-        )
+        // Subsequent panels start hidden
+        gsap.set(panel, { visibility: 'visible' })
+        gsap.set(textSide, { opacity: 0, y: 80 })
+        gsap.set(imgSide, { opacity: 0, scale: 0.9 })
+        
+        // Animate IN (sync with previous panel OUT)
+        tl.to(textSide, { opacity: 1, y: 0, duration: 1, ease: "power2.inOut" }, "out" + (i - 1))
+        tl.to(imgSide, { opacity: 1, scale: 1, duration: 1, ease: "power2.inOut" }, "out" + (i - 1))
         
         // Pause to play animation
         tl.to({}, { duration: 1 })
         
-        // Slide out to left (unless it's the last one)
+        // Slide out (unless it's the last one)
         if (i < items.length - 1) {
-          tl.to(panel, { x: '-50%', opacity: 0, duration: 1 }, "out" + i)
+          tl.to(textSide, { opacity: 0, y: -80, duration: 1, ease: "power2.inOut" }, "out" + i)
+          tl.to(imgSide, { opacity: 0, scale: 1.1, duration: 1, ease: "power2.inOut" }, "out" + i)
         }
       }
     })
@@ -78,6 +87,7 @@ export default function ScrollyCollection({ products, categories }) {
           const category = isProd ? item.category_display : 'Category'
           const desc = isProd ? item.description : item.desc
           const price = isProd ? `₹${item.display_price}` : 'Explore'
+          const image = isProd && item.images && item.images.length > 0 ? item.images[0] : '/animations/0292.jpg'
 
           return (
             <div 
@@ -85,36 +95,42 @@ export default function ScrollyCollection({ products, categories }) {
               className={styles.productPanel}
               ref={el => panelsRef.current[i] = el}
             >
-              {/* Left Side: Product Details */}
-              <div className={styles.cardSide}>
-                <div className={styles.scrollyCard}>
-                  <span className={styles.cardCat}>{category}</span>
-                  <h3 className={styles.cardName}>{title}</h3>
-                  <p className={styles.cardDesc}>
-                    {desc?.length > 120 ? desc.slice(0, 120) + '...' : desc}
+              {/* Left Side: Text */}
+              <div className={styles.textSide}>
+                <div className={styles.textContent}>
+                  <span className={styles.categoryLine}>{category}</span>
+                  <h3 className={styles.productTitle}>{title}</h3>
+                  <div className={styles.divider}></div>
+                  <p className={styles.productDesc}>
+                    {desc?.length > 180 ? desc.slice(0, 180) + '...' : desc}
                   </p>
                   
-                  <div className={styles.cardFooter}>
-                    <span className={styles.cardPrice}>{price}</span>
-                    {isProd && (
+                  <div className={styles.actionRow}>
+                    <span className={styles.price}>{price}</span>
+                    {isProd ? (
                       <button 
-                        className={styles.addBtn}
+                        className={styles.buyBtn}
                         onClick={() => addToCart(item.id, 1)}
-                        title="Add to cart"
                       >
-                        +
+                        Add to Cart <span>+</span>
                       </button>
+                    ) : (
+                      <a 
+                        href={`/products?category=${item.key}`}
+                        className={styles.buyBtn}
+                      >
+                        Explore <span>→</span>
+                      </a>
                     )}
                   </div>
                 </div>
               </div>
 
-              {/* Right Side: Animation Placeholder */}
-              <div className={styles.animSide}>
-                <div className={styles.animPlaceholder}>
-                  <span className={styles.animIcon}>🎬</span>
-                  <h4 className={styles.animText}>Animation Space</h4>
-                  <p className={styles.animSub}>Your animation for {title} goes here</p>
+              {/* Right Side: Image */}
+              <div className={styles.imageSide}>
+                <div className={styles.imageWrapper}>
+                  <img src={image} alt={title} className={styles.heroImg} />
+                  <div className={styles.imageOverlay}></div>
                 </div>
               </div>
             </div>

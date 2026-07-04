@@ -1,0 +1,250 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: #050D0B;
+  color: #FAF8F5;
+  overflow: hidden;
+}
+
+/* ── BG & OVERLAY ── */
+.bgWrapper {
+  position: fixed; /* Parallax effect */
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(5,13,11,0.95) 0%, rgba(5,13,11,0.8) 50%, rgba(5,13,11,0.4) 100%),
+              linear-gradient(to top, rgba(5,13,11,1) 0%, transparent 100%);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 160px clamp(24px, 5vw, 80px) 100px;
+}
+
+/* ── HEADER ── */
+.header {
+  max-width: 700px;
+  margin-bottom: 80px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #FAF8F5;
+  margin-bottom: 30px;
+}
+
+.title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.headerDesc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(250, 248, 245, 0.7);
+  font-weight: 300;
+}
+
+/* ── CONTENT (INFO + FORM) ── */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 100px;
+  margin-bottom: 120px;
+}
+
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.infoBlock h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.infoBlock p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(250, 248, 245, 0.8);
+  font-weight: 300;
+}
+
+/* ── FORM ── */
+.formPanel {
+  background: rgba(10, 46, 40, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 20px;
+  padding: 60px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(250, 248, 245, 0.2);
+  color: #FAF8F5;
+  font-size: 1.1rem;
+  font-family: inherit;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gold);
+}
+
+.inputGroup input::placeholder,
+.inputGroup textarea::placeholder {
+  color: rgba(250, 248, 245, 0.4);
+}
+
+.submitBtn {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin-top: 10px;
+}
+
+.submitBtn:hover {
+  background: var(--gold);
+  color: #050D0B;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.25);
+  transform: translateY(-2px);
+}
+
+.successMessage {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.checkIcon {
+  font-size: 4rem;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+
+.successMessage h3 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.successMessage p {
+  color: rgba(250, 248, 245, 0.7);
+  font-weight: 300;
+}
+
+/* ── FAQ ── */
+.faqSection {
+  border-top: 1px solid rgba(212,175,55,0.15);
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+
+.faqHeader h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #FAF8F5;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px 40px;
+}
+
+.faqItem h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--gold);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.faqItem p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(250, 248, 245, 0.7);
+  font-weight: 300;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .faqSection {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .formPanel {
+    padding: 40px 24px;
+  }
+  
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}

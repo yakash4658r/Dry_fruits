@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCartStore, useUserStore } from '../../store'
+import CartDrawer from '../ui/CartDrawer'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
@@ -30,6 +31,7 @@ export default function Navbar() {
   const [catOpen,     setCatOpen]     = useState(false)
   const [userOpen,    setUserOpen]    = useState(false)
   const [mobileOpen,  setMobileOpen]  = useState(false)
+  const [cartOpen,    setCartOpen]    = useState(false)
 
   useEffect(() => { fetchCart(); fetchUser() }, [])
 
@@ -44,7 +46,7 @@ export default function Navbar() {
       {/* Announcement Bar */}
 
 
-      <nav className={`${styles.nav} ${isHome ? styles.fixedNav : ''} ${scrolled ? styles.scrolled : ''} ${isHome && !scrolled ? styles.hiddenNav : ''}`} id="main-navbar">
+      <nav className={`${styles.nav} ${isHome ? styles.fixedNav : ''} ${(scrolled || !isHome) ? styles.scrolled : ''}`} id="main-navbar">
         <div className={`container ${styles.inner}`}>
 
           {/* Logo */}
@@ -157,10 +159,10 @@ export default function Navbar() {
             )}
 
             {/* Cart */}
-            <a href="/cart/" className={styles.cartBtn} title="Cart">
+            <button className={styles.cartBtn} title="Cart" onClick={() => setCartOpen(true)}>
               <BagIcon />
               {count > 0 && <span className={styles.cartBadge}>{count}</span>}
-            </a>
+            </button>
 
             {/* Mobile Hamburger */}
             <button className={styles.hamburger} onClick={() => setMobileOpen(o => !o)}>
@@ -201,6 +203,9 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Cart Drawer */}
+      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   )
 }
