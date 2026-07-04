@@ -771,3 +771,345 @@ INFO 2026-07-04 20:54:44,817 basehttp "GET /static/unfold/js/alpine/alpine.persi
 INFO 2026-07-04 20:54:44,826 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
 INFO 2026-07-04 20:54:44,826 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
 INFO 2026-07-04 20:54:44,826 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:15,827 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:15,870 basehttp "GET /admin/ HTTP/1.1" 200 62412
+INFO 2026-07-04 20:56:15,895 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 200 608
+INFO 2026-07-04 20:56:15,896 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 200 164
+INFO 2026-07-04 20:56:15,902 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 200 4647
+INFO 2026-07-04 20:56:15,903 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 200 50918
+INFO 2026-07-04 20:56:15,904 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 200 30131
+INFO 2026-07-04 20:56:15,918 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 200 27176
+INFO 2026-07-04 20:56:15,919 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 200 200633
+INFO 2026-07-04 20:56:15,921 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 200 330254
+WARNING 2026-07-04 20:56:15,927 basehttp "GET /admin/%F0%9F%8C%B0 HTTP/1.1" 404 8555
+INFO 2026-07-04 20:56:15,930 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 200 15524
+INFO 2026-07-04 20:56:15,936 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 200 837
+INFO 2026-07-04 20:56:15,937 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 200 703
+INFO 2026-07-04 20:56:15,937 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 200 38101
+INFO 2026-07-04 20:56:15,938 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 200 44758
+INFO 2026-07-04 20:56:15,962 basehttp "GET /static/unfold/fonts/inter/Inter-Regular.woff2 HTTP/1.1" 200 111268
+INFO 2026-07-04 20:56:15,963 basehttp "GET /static/unfold/fonts/inter/Inter-SemiBold.woff2 HTTP/1.1" 200 114812
+INFO 2026-07-04 20:56:15,963 basehttp "GET /static/unfold/fonts/inter/Inter-Medium.woff2 HTTP/1.1" 200 114348
+INFO 2026-07-04 20:56:15,964 basehttp "GET /static/unfold/fonts/material-symbols/Material-Symbols-Outlined.woff2 HTTP/1.1" 200 291696
+WARNING 2026-07-04 20:56:16,009 log Not Found: /favicon.ico
+WARNING 2026-07-04 20:56:16,010 basehttp "GET /favicon.ico HTTP/1.1" 404 9465
+INFO 2026-07-04 20:56:20,339 basehttp "GET /admin/core/product/ HTTP/1.1" 200 123129
+INFO 2026-07-04 20:56:20,361 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,362 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,362 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,363 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,368 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-07-04 20:56:20,369 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9241
+INFO 2026-07-04 20:56:20,370 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2026-07-04 20:56:20,371 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 7977
+INFO 2026-07-04 20:56:20,375 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:20,376 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,377 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-07-04 20:56:20,377 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-07-04 20:56:20,380 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,381 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,384 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2026-07-04 20:56:20,385 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2026-07-04 20:56:20,393 basehttp "GET /admin/core/product/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:20,413 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,416 basehttp "GET /admin/core/product/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:20,419 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,422 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,427 basehttp "GET /admin/core/product/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:20,427 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,431 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,451 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:20,451 basehttp "GET /admin/ HTTP/1.1" 200 62804
+INFO 2026-07-04 20:56:20,461 basehttp "GET /media/product_images/almonds.jpg HTTP/1.1" 200 763796
+INFO 2026-07-04 20:56:20,464 basehttp "GET /media/product_images/pistachios.jpg HTTP/1.1" 200 845635
+INFO 2026-07-04 20:56:20,466 basehttp "GET /media/product_images/cashews.jpg HTTP/1.1" 200 802395
+INFO 2026-07-04 20:56:20,517 basehttp "GET /media/product_images/mix_seeds.jpg HTTP/1.1" 200 843059
+INFO 2026-07-04 20:56:20,518 basehttp "GET /media/product_images/raisins.jpg HTTP/1.1" 200 871879
+INFO 2026-07-04 20:56:20,519 basehttp "GET /media/product_images/walnuts.jpg HTTP/1.1" 200 913756
+INFO 2026-07-04 20:56:24,597 basehttp "GET /admin/core/review/ HTTP/1.1" 200 48402
+INFO 2026-07-04 20:56:24,619 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,619 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,619 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,619 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,620 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,621 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,624 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,624 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,627 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,627 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,629 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,630 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,630 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,632 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,634 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:24,634 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,637 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,638 basehttp "GET /admin/core/review/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:24,648 basehttp "GET /admin/core/review/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:24,654 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,655 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,655 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,656 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,656 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:24,658 basehttp "GET /admin/core/review/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:24,690 basehttp "GET /admin/ HTTP/1.1" 200 62803
+INFO 2026-07-04 20:56:25,249 basehttp "GET /admin/payment/order/ HTTP/1.1" 200 52388
+INFO 2026-07-04 20:56:25,271 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,273 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,273 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,273 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,273 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,274 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,278 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,280 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,280 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,280 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,281 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,285 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,286 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,286 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,287 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,287 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:25,290 basehttp "GET /admin/payment/order/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:25,290 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,300 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,300 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,300 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,301 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,301 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:25,303 basehttp "GET /admin/payment/order/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:25,322 basehttp "GET /admin/payment/order/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:25,343 basehttp "GET /admin/ HTTP/1.1" 200 62802
+ERROR 2026-07-04 20:56:25,979 log Internal Server Error: /manage/orders/
+Traceback (most recent call last):
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "R:\Dry_fruits_ecom\core\views.py", line 238, in order_dashboard
+    return render(request, "order_dashboard.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: order_dashboard.html
+ERROR 2026-07-04 20:56:25,981 basehttp "GET /manage/orders/ HTTP/1.1" 500 98297
+INFO 2026-07-04 20:56:36,131 basehttp "GET /admin/payment/order/ HTTP/1.1" 200 52388
+INFO 2026-07-04 20:56:36,149 basehttp "GET /admin/payment/order/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:36,166 basehttp "GET /admin/payment/order/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:36,176 basehttp "GET /admin/payment/order/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:36,203 basehttp "GET /admin/ HTTP/1.1" 200 62802
+ERROR 2026-07-04 20:56:37,989 log Internal Server Error: /manage/orders/
+Traceback (most recent call last):
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "R:\Dry_fruits_ecom\core\views.py", line 238, in order_dashboard
+    return render(request, "order_dashboard.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: order_dashboard.html
+ERROR 2026-07-04 20:56:37,990 basehttp "GET /manage/orders/ HTTP/1.1" 500 98297
+INFO 2026-07-04 20:56:39,383 basehttp "GET /admin/payment/order/ HTTP/1.1" 200 52388
+INFO 2026-07-04 20:56:39,400 basehttp "GET /admin/payment/order/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:39,416 basehttp "GET /admin/payment/order/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:39,421 basehttp "GET /admin/payment/order/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:39,443 basehttp "GET /admin/ HTTP/1.1" 200 62802
+INFO 2026-07-04 20:56:40,105 basehttp "GET /admin/auth/user/ HTTP/1.1" 200 61167
+INFO 2026-07-04 20:56:40,126 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,126 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,126 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,126 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,126 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,127 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,133 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,134 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,135 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,135 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,136 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,140 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,140 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,142 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,142 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:40,142 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,144 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,145 basehttp "GET /admin/auth/user/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:40,154 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,155 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,155 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,156 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,157 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:40,158 basehttp "GET /admin/auth/user/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:40,164 basehttp "GET /admin/auth/user/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:40,202 basehttp "GET /admin/ HTTP/1.1" 200 62801
+INFO 2026-07-04 20:56:40,985 basehttp "GET /admin/core/customerform/ HTTP/1.1" 200 42611
+INFO 2026-07-04 20:56:41,009 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,009 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,010 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,010 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,010 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,010 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,016 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,017 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,018 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,018 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,019 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,023 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,024 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,024 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,024 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,028 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:41,029 basehttp "GET /admin/core/customerform/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:41,029 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,037 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,037 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,037 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,037 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,038 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:41,041 basehttp "GET /admin/core/customerform/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:41,057 basehttp "GET /admin/core/customerform/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:41,082 basehttp "GET /admin/ HTTP/1.1" 200 62810
+INFO 2026-07-04 20:56:42,108 basehttp "GET /admin/auth/user/ HTTP/1.1" 200 61167
+INFO 2026-07-04 20:56:42,129 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,130 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,131 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,131 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,131 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,132 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,135 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,135 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,135 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,138 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,138 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,140 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,141 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,142 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,142 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,143 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:42,147 basehttp "GET /admin/auth/user/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:42,147 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,155 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,156 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,157 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,158 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,159 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:42,160 basehttp "GET /admin/auth/user/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:42,185 basehttp "GET /admin/auth/user/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:42,207 basehttp "GET /admin/ HTTP/1.1" 200 62801
+INFO 2026-07-04 20:56:43,438 basehttp "GET /admin/core/customerform/ HTTP/1.1" 200 42611
+INFO 2026-07-04 20:56:43,459 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,459 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,461 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,461 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,462 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,462 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,465 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,465 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,465 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,465 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,467 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,472 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,472 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,472 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,472 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,474 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:43,478 basehttp "GET /admin/core/customerform/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:43,478 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,487 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,487 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,488 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,488 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,488 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:43,491 basehttp "GET /admin/core/customerform/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:43,507 basehttp "GET /admin/core/customerform/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:43,525 basehttp "GET /admin/ HTTP/1.1" 200 62810
+INFO 2026-07-04 20:56:46,417 basehttp "GET /admin/payment/orderitems/ HTTP/1.1" 200 42518
+INFO 2026-07-04 20:56:46,440 basehttp "GET /static/unfold/fonts/inter/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,441 basehttp "GET /static/unfold/css/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,443 basehttp "GET /static/unfold/css/simplebar/simplebar.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,443 basehttp "GET /static/unfold/fonts/material-symbols/styles.css HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,444 basehttp "GET /static/unfold/js/chart/chart.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,445 basehttp "GET /static/unfold/js/htmx/htmx.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,447 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,448 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,448 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,448 basehttp "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,449 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,453 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,454 basehttp "GET /static/unfold/js/app.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,455 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,455 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,458 basehttp "GET /admin/payment/orderitems/%F0%9F%8C%B0 HTTP/1.1" 301 0
+INFO 2026-07-04 20:56:46,458 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2026-07-04 20:56:46,459 basehttp "GET /static/unfold/js/simplebar/simplebar.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,464 basehttp "GET /admin/payment/orderitems/%F0%9F%8C%B0/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:46,470 basehttp "GET /static/unfold/js/alpine/alpine.anchor.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,471 basehttp "GET /static/unfold/js/alpine/alpine.persist.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,472 basehttp "GET /static/unfold/js/alpine/alpine.sort.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,472 basehttp "GET /static/unfold/js/alpine/alpine.resize.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,473 basehttp "GET /static/unfold/js/alpine/alpine.js HTTP/1.1" 304 0
+INFO 2026-07-04 20:56:46,475 basehttp "GET /admin/payment/orderitems/%F0%9F%8C%B0/change/ HTTP/1.1" 302 0
+INFO 2026-07-04 20:56:46,508 basehttp "GET /admin/ HTTP/1.1" 200 62808
+ERROR 2026-07-04 21:01:12,522 log Internal Server Error: /manage/orders/
+Traceback (most recent call last):
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "R:\Dry_fruits_ecom\core\views.py", line 238, in order_dashboard
+    return render(request, "order_dashboard.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: order_dashboard.html
+ERROR 2026-07-04 21:01:12,524 basehttp "GET /manage/orders/ HTTP/1.1" 500 98302
+ERROR 2026-07-04 21:01:14,137 log Internal Server Error: /manage/orders/
+Traceback (most recent call last):
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "R:\Dry_fruits_ecom\core\views.py", line 238, in order_dashboard
+    return render(request, "order_dashboard.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Yakash\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: order_dashboard.html
+ERROR 2026-07-04 21:01:14,138 basehttp "GET /manage/orders/ HTTP/1.1" 500 98567
+WARNING 2026-07-04 21:01:14,196 log Not Found: /favicon.ico
+WARNING 2026-07-04 21:01:14,197 basehttp "GET /favicon.ico HTTP/1.1" 404 9465
+INFO 2026-07-04 21:10:07,878 autoreload R:\Dry_fruits_ecom\e_com_pro\settings.py changed, reloading.
+INFO 2026-07-04 21:10:08,498 autoreload Watching for file changes with StatReloader
