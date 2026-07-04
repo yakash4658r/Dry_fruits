@@ -9,4 +9,5 @@ urlpatterns = [
   path("payment_verify/", payment_verify, name="payment_verify"),
   path("success/<pk>/", payment_success, name="payment_success"),
   path("update_address/<order_pk>/<pk>/", update_address, name="update_address"),
+  path("api/my-orders/", api_my_orders, name="api_my_orders"),
 ]

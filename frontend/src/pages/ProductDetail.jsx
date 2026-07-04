@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { useProductsStore, useCartStore } from '@/store'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { motion } from 'framer-motion'
@@ -42,6 +43,10 @@ export default function ProductDetail() {
 
   return (
     <div className={styles.page}>
+      <Helmet>
+        <title>{currentProduct.name} | Nectar & Nut</title>
+        <meta name="description" content={`Buy premium ${currentProduct.name} online from Nectar & Nut.`} />
+      </Helmet>
       
       {/* ── SPLIT LAYOUT HERO ── */}
       <div className={styles.splitContainer}>

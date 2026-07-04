@@ -1,0 +1,185 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Nectar & Nut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #0A2E28;
+            --emerald-mid: #16463D;
+            --gold: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #F3E0A2 0%, #D4AF37 50%, #AA820A 100%);
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --text: #1E1E1E;
+            --text-muted: #6B7280;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Outfit', system-ui, sans-serif;
+            --radius: 14px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--cream);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--emerald);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-brand .accent {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .auth-header {
+            background: var(--white);
+            border-bottom: 1px solid rgba(10,46,40,0.06);
+            padding: 20px 0;
+        }
+
+        /* Main Container */
+        .auth-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, var(--cream) 0%, rgba(212,175,55,0.05) 100%);
+        }
+
+        .auth-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 20px 50px rgba(10,46,40,0.08);
+            padding: 50px;
+            border: 1px solid rgba(10,46,40,0.06);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            color: var(--emerald);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .form-control {
+            border: 1px solid rgba(10,46,40,0.15);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--cream);
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+        .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+            background: var(--white);
+            outline: none;
+        }
+        
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: var(--emerald);
+            font-weight: 600;
+            padding: 15px 36px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.05rem;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.2);
+            transition: all 0.4s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.3);
+            color: var(--emerald);
+        }
+
+        .auth-links {
+            margin-top: 25px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .auth-links a {
+            color: var(--emerald);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .auth-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Make Crispy Forms text align left */
+        .auth-card form {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="auth-header">
+        <div class="container d-flex justify-content-center">
+            <a href="/" class="navbar-brand">
+                <span>🌰</span> Nectar<span class="accent">&amp;Nut</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <h1 class="page-title">Join the Atelier</h1>
+            <p class="page-subtitle">Create an account for faster checkout and exclusive access.</p>
+            
+            <form class="signup" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                
+                <button class="btn btn-gold" type="submit">Create Account</button>
+            </form>
+
+            <div class="auth-links text-center">
+                <p>Already have an account? <a href="{{ login_url }}">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -43,9 +43,15 @@ export default function Footer() {
         </div>
       </div>
       
-      {/* Bottom Copy */}
-      <div className={styles.bottomCopy}>
-        <p>© 2026 Nectar & Nut.</p>
+      {/* Bottom Copy & Legal */}
+      <div className={styles.bottomCopy} style={{ display: 'flex', justifyContent: 'space-between', padding: '0 5%', alignItems: 'center' }}>
+        <p style={{ margin: 0 }}>© 2026 Nectar & Nut.</p>
+        <ul style={{ display: 'flex', gap: '20px', listStyle: 'none', margin: 0, padding: 0 }}>
+          <li><Link to="/privacy-policy" style={{ color: 'var(--color-text-light)', textDecoration: 'none', fontSize: '0.85rem' }}>Privacy Policy</Link></li>
+          <li><Link to="/terms" style={{ color: 'var(--color-text-light)', textDecoration: 'none', fontSize: '0.85rem' }}>Terms of Service</Link></li>
+          <li><Link to="/refund-policy" style={{ color: 'var(--color-text-light)', textDecoration: 'none', fontSize: '0.85rem' }}>Refunds</Link></li>
+          <li><Link to="/shipping-policy" style={{ color: 'var(--color-text-light)', textDecoration: 'none', fontSize: '0.85rem' }}>Shipping</Link></li>
+        </ul>
       </div>
     </footer>
   )

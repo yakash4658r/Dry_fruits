@@ -1,0 +1,118 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(250, 248, 245, 0.98); /* Cream with opacity */
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  padding: 80px 20px 60px;
+  border-bottom: 1px solid rgba(10, 46, 40, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.closeBtn:hover {
+  transform: rotate(90deg);
+}
+
+.content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-style: italic;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.searchInput {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  outline: none;
+}
+.searchInput::placeholder {
+  color: rgba(10, 46, 40, 0.3);
+}
+
+.submitBtn {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+.submitBtn:hover {
+  transform: translateX(5px);
+}
+
+.suggestions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.suggestions span {
+  font-family: var(--font-body);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.suggestions button {
+  background: rgba(10, 46, 40, 0.05);
+  border: 1px solid rgba(10, 46, 40, 0.1);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.suggestions button:hover {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .searchInput {
+    font-size: 1.8rem;
+  }
+  .closeBtn {
+    top: 20px;
+    right: 20px;
+  }
+}

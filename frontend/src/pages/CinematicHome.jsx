@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, Suspense, lazy } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import api from '@/utils/api'
 import { useCartStore } from '@/store'
@@ -74,6 +75,11 @@ export default function CinematicHome() {
 
   return (
     <div className={styles.page}>
+      <Helmet>
+        <title>Luxury Dry Fruits & Nuts | Nectar & Nut</title>
+        <meta name="description" content="Discover premium, organically sourced dry fruits, nuts, and seeds from Nectar & Nut. Harvested globally, delivered fresh." />
+      </Helmet>
+      
       {/* Background Image Sequence Canvas (Desktop Only) */}
       {!isMobile && (
         <div className={styles.desktopOnly}>

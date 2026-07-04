@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { useProductsStore } from '@/store'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { motion } from 'framer-motion'
@@ -11,11 +12,13 @@ export default function Products() {
 
   const currentCategory = searchParams.get('category') || ''
   const currentSort = searchParams.get('sort') || 'newest'
+  const currentSearch = searchParams.get('q') || ''
 
   useEffect(() => {
     fetchProducts({
       category: currentCategory,
       sort: currentSort,
+      q: currentSearch,
       page: searchParams.get('page') || 1
     })
     window.scrollTo(0, 0)
@@ -34,6 +37,10 @@ export default function Products() {
 
   return (
     <div className={styles.productsPage}>
+      <Helmet>
+        <title>The Collection | Nectar & Nut</title>
+        <meta name="description" content="Shop our exclusive collection of organic dry fruits, nuts, and seeds. Hand-picked for the finest quality." />
+      </Helmet>
       
       {/* ── LUXURY HERO BANNER ── */}
       <section className={styles.hero}>
@@ -57,6 +64,28 @@ export default function Products() {
         
         {/* ── SIDEBAR FILTERS ── */}
         <aside className={styles.sidebar}>
+          <div className={styles.filterBar}>
+            <div className={styles.filterLeft}>
+              {currentSearch ? (
+                <h3>Search Results for: <em>"{currentSearch}"</em></h3>
+              ) : (
+                <h3>{currentCategory ? currentCategory.replace('_', ' ') : 'All Products'}</h3>
+              )}
+            </div>
+            
+            <div className={styles.filterRight}>
+              <select 
+                value={currentSort}
+                onChange={(e) => handleFilterChange('sort', e.target.value)}
+                className={styles.sortSelect}
+              >
+                <option value="newest">Newest Arrivals</option>
+                <option value="popular">Most Popular</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
           <div className={styles.filterGroup}>
             <h3>Category</h3>
             <ul className={styles.categoryList}>

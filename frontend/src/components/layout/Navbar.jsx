@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useCartStore, useUserStore } from '../../store'
 import CartDrawer from '../ui/CartDrawer'
+import SearchOverlay from '../ui/SearchOverlay'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
@@ -32,6 +33,7 @@ export default function Navbar() {
   const [userOpen,    setUserOpen]    = useState(false)
   const [mobileOpen,  setMobileOpen]  = useState(false)
   const [cartOpen,    setCartOpen]    = useState(false)
+  const [searchOpen,  setSearchOpen]  = useState(false)
 
   useEffect(() => { fetchCart(); fetchUser() }, [])
 
@@ -104,9 +106,9 @@ export default function Navbar() {
           {/* Right Icons */}
           <div className={styles.actions}>
             {/* Search */}
-            <Link to="/products" className={styles.iconBtn} title="Search">
+            <button className={styles.iconBtn} title="Search" onClick={() => setSearchOpen(true)}>
               <SearchIcon />
-            </Link>
+            </button>
 
             {/* Wishlist */}
             {user?.authenticated && (
@@ -206,6 +208,9 @@ export default function Navbar() {
 
       {/* Cart Drawer */}
       <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+      
+      {/* Search Overlay */}
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   )
 }

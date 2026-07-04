@@ -1,14 +1,13 @@
-import os
-import uuid
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
-from django.conf import settings
-from django.urls import reverse
 import razorpay
-
-from .form import ShippingAddressForm
+import uuid
+import os
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from .forms import ShippingAddressForm
 from .models import Order, ShippingAddress, OrderItems
 from cart.cart import Cart
 
@@ -213,3 +212,37 @@ def payment_success(request, pk):
         "status": "success",
         "order": order,
     })
+
+
+@login_required
+def api_my_orders(request):
+    """Return JSON of user's past orders for the React dashboard."""
+    orders = Order.objects.filter(user=request.user).order_by("-ordered_date")
+    
+    order_data = []
+    for order in orders:
+        items = []
+        for item in order.items.all():
+            items.append({
+                "product_name": item.product_name,
+                "qty": item.product_qty,
+                "price": str(item.product_price),
+                "total": str(item.line_total()),
+                "image": item.product.image_1.url if item.product and item.product.image_1 else None
+            })
+            
+        order_data.append({
+            "id": str(order.id),
+            "date": order.ordered_date.strftime("%b %d, %Y"),
+            "status": order.get_status_display(),
+            "total_amount": str(order.amount_paid) if order.amount_paid else "0.00",
+            "payment_id": order.payment_id,
+            "items": items,
+            "address": {
+                "name": f"{order.address.first_name} {order.address.last_name}",
+                "full_address": f"{order.address.address}, {order.address.city}, {order.address.state} - {order.address.pin_code}",
+                "phone": order.address.phone_no
+            }
+        })
+        
+    return JsonResponse({"orders": order_data})

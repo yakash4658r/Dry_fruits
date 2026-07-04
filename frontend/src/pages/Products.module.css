@@ -91,6 +91,28 @@
   margin-bottom: 50px;
 }
 
+.filterBar {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filterLeft h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  margin: 0;
+}
+.filterLeft h3 em {
+  font-style: italic;
+}
+
+.filterRight {
+  width: 100%;
+}
+
 .filterGroup h3 {
   font-size: 0.85rem;
   font-weight: 700;
