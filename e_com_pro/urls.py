@@ -20,6 +20,7 @@ from django.views.static import serve
 from django.conf import settings
 
 from django.conf.urls.static import static
+from payment.views import checkout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,7 @@ urlpatterns = [
     path("",include("core.urls")),
     path("",include("core.api_urls")),   # React REST API endpoints
     path("",include("cart.urls")),
+    path("checkout/", checkout, name="checkout"),
     path("payment/",include("payment.urls")),
 
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

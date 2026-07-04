@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt | Nectar & Nut</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #0A2E28;
+            --emerald-mid: #16463D;
+            --gold: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #F3E0A2 0%, #D4AF37 50%, #AA820A 100%);
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --text: #1E1E1E;
+            --text-muted: #6B7280;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Outfit', system-ui, sans-serif;
+            --radius: 14px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--cream);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--emerald);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-brand .accent {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .checkout-header {
+            background: var(--white);
+            border-bottom: 1px solid rgba(10,46,40,0.06);
+            padding: 20px 0;
+        }
+
+        .receipt-container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .receipt-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 15px 40px rgba(10,46,40,0.06);
+            padding: 50px;
+            border: 1px solid rgba(10,46,40,0.06);
+            text-align: center;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+        }
+        .icon-success {
+            background: rgba(212,175,55,0.15);
+            color: var(--gold);
+        }
+        .icon-fail {
+            background: rgba(220,53,69,0.1);
+            color: #dc3545;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            color: var(--emerald);
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .order-details {
+            text-align: left;
+            background: var(--cream);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+        .detail-row:last-child { margin-bottom: 0; }
+        .detail-label { color: var(--text-muted); font-weight: 500; }
+        .detail-value { color: var(--emerald); font-weight: 600; font-family: var(--mono, monospace); }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: var(--emerald);
+            font-weight: 600;
+            padding: 16px 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.2);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.3);
+            color: var(--emerald);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="container d-flex justify-content-center">
+            <a href="/" class="navbar-brand">
+                <span>🌰</span> Nectar<span class="accent">&amp;Nut</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="receipt-container">
+        <div class="receipt-card">
+            
+            {% if status == "success" %}
+                <div class="icon-circle icon-success">✓</div>
+                <h1 class="page-title">Order Confirmed</h1>
+                <p class="page-subtitle">Your luxury dry fruits are being prepared.</p>
+
+                <div class="order-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Order ID</span>
+                        <span class="detail-value">{{ order.id }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Transaction Ref</span>
+                        <span class="detail-value">{{ order.payment_id }}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Payment Status</span>
+                        <span class="detail-value" style="color: #28a745;">Paid</span>
+                    </div>
+                    <div class="detail-row mt-3 pt-3" style="border-top: 1px dashed rgba(10,46,40,0.1);">
+                        <span class="detail-label">Delivery To</span>
+                        <span class="detail-value" style="text-align: right;">
+                            {{ order.address.first_name }} {{ order.address.last_name }}<br>
+                            {{ order.address.city }}, {{ order.address.pin_code }}
+                        </span>
+                    </div>
+                </div>
+                
+                <a href="/" class="btn-gold">Return to Home</a>
+
+            {% elif status == "failed" or status == "invalid" %}
+                <div class="icon-circle icon-fail">✕</div>
+                <h1 class="page-title">Payment Failed</h1>
+                <p class="page-subtitle">We couldn't process your payment. Please try again.</p>
+                <a href="{% url 'billing_info' order.pk %}" class="btn-gold">Retry Payment</a>
+            {% endif %}
+            
+        </div>
+    </div>
+
+</body>
+</html>

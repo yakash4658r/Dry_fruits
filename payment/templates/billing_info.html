@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing & Payment | Nectar & Nut</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #0A2E28;
+            --emerald-mid: #16463D;
+            --gold: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #F3E0A2 0%, #D4AF37 50%, #AA820A 100%);
+            --cream: #FAF8F5;
+            --white: #FFFFFF;
+            --text: #1E1E1E;
+            --text-muted: #6B7280;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Outfit', system-ui, sans-serif;
+            --radius: 14px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--cream);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navbar */
+        .navbar-brand {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--emerald);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-brand .accent {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .checkout-header {
+            background: var(--white);
+            border-bottom: 1px solid rgba(10,46,40,0.06);
+            padding: 20px 0;
+        }
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            font-family: var(--font-serif);
+            color: var(--emerald);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .info-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(10,46,40,0.04);
+            padding: 30px;
+            border: 1px solid rgba(10,46,40,0.06);
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* Order Summary */
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(10,46,40,0.06);
+        }
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        .product-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(10,46,40,0.05);
+        }
+        .product-info {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+        .product-title {
+            font-weight: 600;
+            margin: 0;
+            color: var(--emerald);
+        }
+        .product-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .product-price {
+            font-weight: 600;
+            color: var(--emerald);
+        }
+
+        /* Totals */
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+        .totals-row.grand-total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--emerald);
+            border-top: 2px solid rgba(10,46,40,0.08);
+            padding-top: 15px;
+            margin-top: 5px;
+        }
+
+        /* Mock Payment Form */
+        .mock-card {
+            background: #fdfbf7;
+            border: 1px solid #e2ded5;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .form-control {
+            border: 1px solid rgba(10,46,40,0.15);
+            border-radius: 8px;
+            padding: 12px 16px;
+            background: var(--white);
+            margin-bottom: 15px;
+        }
+        .form-control:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212,175,55,0.1);
+            outline: none;
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: var(--emerald);
+            font-weight: 600;
+            padding: 16px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(212,175,55,0.2);
+            transition: all 0.4s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212,175,55,0.3);
+            color: var(--emerald);
+        }
+
+        .address-box {
+            background: rgba(10,46,40,0.03);
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+        .address-box strong {
+            color: var(--emerald);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="checkout-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/" class="navbar-brand">
+                <span>🌰</span> Nectar<span class="accent">&amp;Nut</span>
+            </a>
+            <a href="/checkout/" class="text-muted text-decoration-none" style="font-weight:500;">
+                ← Edit Address
+            </a>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        <div class="row">
+            <!-- Left Column: Address & Payment -->
+            <div class="col-lg-7">
+                <h1 class="page-title">Billing &amp; Payment</h1>
+                <p class="page-subtitle">Step 2: Review and Pay</p>
+
+                <div class="info-card">
+                    <span class="section-label">Shipping Details</span>
+                    <p class="address-box">
+                        <strong>{{ order.address.first_name }} {{ order.address.last_name }}</strong><br>
+                        {{ order.address.address }}<br>
+                        {{ order.address.city }}, {{ order.address.state }} - {{ order.address.pin_code }}<br>
+                        {{ order.address.country }}<br>
+                        <span class="mt-2 d-block">📞 {{ order.address.phone_no }} &nbsp;|&nbsp; ✉️ {{ order.address.email }}</span>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="section-label mb-0">Payment Method</span>
+                        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill" style="font-weight: 600;">Mock Gateway</span>
+                    </div>
+                    
+                    <div class="mock-card">
+                        <h5 class="mb-3" style="color: var(--emerald); font-family: var(--font-serif); font-weight:600;">Test Credit Card</h5>
+                        <form action="{% url 'mock_pay' order.id %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" class="form-control" placeholder="Cardholder Name" value="{{ order.address.first_name }} {{ order.address.last_name }}" required>
+                            
+                            <input type="text" class="form-control" placeholder="Card Number (0000 0000 0000 0000)" value="4111 1111 1111 1111" required>
+                            
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="MM/YY" value="12/28" required>
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="CVV" value="123" required>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-gold mt-3">
+                                Pay ₹{{ total|add:delivery }} securely
+                            </button>
+                            <p class="text-center mt-3 mb-0" style="font-size: 0.8rem; color: #999;">
+                                This is a simulated transaction. No real money will be deducted.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="col-lg-5">
+                <div class="info-card" style="position: sticky; top: 40px;">
+                    <span class="section-label">Order Summary</span>
+                    
+                    <div class="order-items mb-4">
+                        {% for product, qty in products.items %}
+                        <div class="product-item">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-img">
+                            <div class="product-info">
+                                <h4 class="product-title">{{ product.name }}</h4>
+                                <p class="product-meta">Qty: {{ qty }}</p>
+                            </div>
+                            <div class="product-price">
+                                {% if product.is_discount %}
+                                    ₹{{ product.discount_price }}
+                                {% else %}
+                                    ₹{{ product.price }}
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p class="text-muted">Your cart is empty.</p>
+                        {% endfor %}
+                    </div>
+
+                    <div class="totals-row">
+                        <span>Subtotal</span>
+                        <span>₹{{ total }}</span>
+                    </div>
+                    <div class="totals-row">
+                        <span>Standard Delivery</span>
+                        <span>₹{{ delivery }}</span>
+                    </div>
+                    <div class="totals-row grand-total">
+                        <span>Total to Pay</span>
+                        <span>₹{{ total|add:delivery }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

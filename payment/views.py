@@ -1,4 +1,5 @@
 import os
+import uuid
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -173,3 +174,42 @@ def update_address(request, order_pk, pk):
             return redirect("billing_info", pk=order_pk)
 
     return render(request, "checkout.html", {"form": form})
+
+
+# ─────────────────────────────────────────────
+# Mock Payment Gateway
+# ─────────────────────────────────────────────
+@login_required
+def mock_pay(request, pk):
+    """Simulate a successful payment for testing without Razorpay."""
+    order = get_object_or_404(Order, pk=pk)
+    
+    # Simulate payment success
+    order.is_paid = True
+    order.payment_id = f"pay_mock_{uuid.uuid4().hex[:12]}"
+    order.status = "processing"
+    order.save()
+    
+    # Update sales counter and reduce stock
+    for item in order.items.all():
+        if item.product:
+            item.product.no_of_sales += item.product_qty
+            item.product.stock = max(0, item.product.stock - int(item.product_qty))
+            item.product.save()
+            
+    # Clear cart session
+    if "session_key" in request.session:
+        del request.session["session_key"]
+        request.session.modified = True
+        
+    return redirect("payment_success", pk=order.pk)
+
+
+@login_required
+def payment_success(request, pk):
+    """Display success receipt after mock payment."""
+    order = get_object_or_404(Order, pk=pk)
+    return render(request, "payment_verify.html", {
+        "status": "success",
+        "order": order,
+    })
