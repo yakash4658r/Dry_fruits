@@ -1260,3 +1260,4 @@ django.template.exceptions.TemplateDoesNotExist: index.html
 ERROR 2026-07-04 21:31:05,937 basehttp "GET / HTTP/1.1" 500 106159
 WARNING 2026-07-04 21:31:06,004 log Not Found: /favicon.ico
 WARNING 2026-07-04 21:31:06,004 basehttp "GET /favicon.ico HTTP/1.1" 404 9465
+INFO 2026-07-11 23:04:55,253 autoreload Watching for file changes with StatReloader
