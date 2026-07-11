@@ -429,6 +429,192 @@
   }
 }
 
+/* ── REVIEWS SECTION ── */
+.reviewsSection {
+  background: rgba(10, 26, 22, 0.4);
+  padding: 80px 24px;
+  border-top: 1px solid rgba(212,175,55,0.15);
+}
+
+.reviewsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reviewsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  border-bottom: 1px solid rgba(212,175,55,0.1);
+  padding-bottom: 20px;
+}
+.reviewsHeader h2 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--gold);
+  font-weight: 300;
+  margin: 0;
+}
+
+.avgRatingBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avgRatingNum {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.avgRatingStars {
+  font-size: 1.2rem;
+}
+.avgRatingCount {
+  color: rgba(250, 248, 245, 0.6);
+  font-size: 0.9rem;
+}
+
+.reviewsLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+.reviewFormCol h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #FAF8F5;
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.ratingSelect {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.ratingSelect label {
+  font-size: 0.9rem;
+  color: rgba(250, 248, 245, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.starSelect span {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.starSelect span:hover {
+  transform: scale(1.2);
+}
+
+.reviewForm input,
+.reviewForm textarea {
+  background: rgba(250, 248, 245, 0.05);
+  border: 1px solid rgba(250, 248, 245, 0.1);
+  color: #FAF8F5;
+  padding: 14px;
+  border-radius: 8px;
+  font-family: inherit;
+}
+.reviewForm input:focus,
+.reviewForm textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.reviewForm button {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 12px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.reviewForm button:hover:not(:disabled) {
+  background: var(--gold);
+  color: #050D0B;
+}
+.reviewForm button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.reviewMsg {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.reviewMsg.success { background: rgba(34, 197, 94, 0.1); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.2); }
+.reviewMsg.error { background: rgba(239, 68, 68, 0.1); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+.loginPrompt {
+  background: rgba(250, 248, 245, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px dashed rgba(212,175,55,0.3);
+}
+.loginBtn {
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--gold);
+  color: #050D0B;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.userReviewExists {
+  background: rgba(212,175,55,0.05);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.2);
+}
+.userReviewExists h4 { color: var(--gold); margin-bottom: 10px; }
+.userReviewExists h5 { margin: 10px 0 5px; font-size: 1.1rem; }
+.userReviewExists p { color: rgba(250, 248, 245, 0.7); font-size: 0.95rem; }
+
+.reviewListCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviewCard {
+  background: rgba(250, 248, 245, 0.02);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(250, 248, 245, 0.05);
+}
+.reviewCardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.reviewAuthor { font-weight: 500; color: var(--gold); }
+.reviewDate { color: rgba(250, 248, 245, 0.4); font-size: 0.85rem; }
+.reviewCardStars { margin-bottom: 10px; font-size: 0.9rem; }
+.reviewCardTitle { margin: 0 0 10px; font-size: 1.1rem; }
+.reviewCardBody { margin: 0; color: rgba(250, 248, 245, 0.7); font-size: 0.95rem; line-height: 1.6; }
+
+.noReviews {
+  text-align: center;
+  padding: 50px 0;
+  color: rgba(250, 248, 245, 0.5);
+}
+
+@media (max-width: 900px) {
+  .reviewsLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ── CULINARY INSPIRATION ── */
 .culinarySection {

@@ -246,3 +246,54 @@ def api_contact(request):
         return JsonResponse({"status": "success", "message": "Message sent."})
     except Exception as e:
         return JsonResponse({"status": "error", "message": str(e)}, status=400)
+
+
+# ─────────────────────────────────────────────
+# POST /api/products/<id>/review/
+# ─────────────────────────────────────────────
+@ensure_csrf_cookie
+@require_POST
+def api_submit_review(request, id):
+    """Submit a product review (must be logged in)."""
+    if not request.user.is_authenticated:
+        return JsonResponse({"status": "error", "message": "Must be logged in to review."}, status=401)
+        
+    from django.shortcuts import get_object_or_404
+    from .models import Product, Review
+    
+    product = get_object_or_404(Product, id=id, is_active=True)
+    
+    try:
+        data = json.loads(request.body)
+        rating = int(data.get("rating", 5))
+        title = data.get("title", "")
+        body = data.get("body", "")
+        
+        if rating < 1 or rating > 5:
+            return JsonResponse({"status": "error", "message": "Rating must be between 1 and 5."}, status=400)
+            
+        # Create or update review
+        review, created = Review.objects.update_or_create(
+            user=request.user,
+            product=product,
+            defaults={
+                "rating": rating,
+                "title": title,
+                "body": body
+            }
+        )
+        
+        return JsonResponse({
+            "status": "success", 
+            "message": "Review submitted successfully.",
+            "review": {
+                "id": review.id,
+                "rating": review.rating,
+                "title": review.title,
+                "body": review.body,
+                "created_at": str(review.created_at),
+                "user_name": request.user.first_name or request.user.username
+            }
+        })
+    except Exception as e:
+        return JsonResponse({"status": "error", "message": str(e)}, status=400)

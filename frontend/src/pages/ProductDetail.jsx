@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { useProductsStore, useCartStore } from '@/store'
+import { useProductsStore, useCartStore, useUserStore } from '@/store'
+import api from '@/utils/api'
 import { ProductCard } from '@/components/ui/ProductCard'
 import { motion } from 'framer-motion'
 import styles from './ProductDetail.module.css'
@@ -14,6 +15,12 @@ export default function ProductDetail() {
   const [qty, setQty] = useState(1)
   const [added, setAdded] = useState(false)
   const [activeImage, setActiveImage] = useState('')
+  
+  // Review state
+  const { user } = useUserStore()
+  const [reviewForm, setReviewForm] = useState({ rating: 5, title: '', body: '' })
+  const [submittingReview, setSubmittingReview] = useState(false)
+  const [reviewMessage, setReviewMessage] = useState(null)
 
   useEffect(() => {
     fetchProductDetail(id)
@@ -39,6 +46,20 @@ export default function ProductDetail() {
     await addToCart(currentProduct.id, qty)
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
+  }
+
+  const submitReview = async (e) => {
+    e.preventDefault()
+    setSubmittingReview(true)
+    try {
+      const { data } = await api.post(`/api/products/${id}/review/`, reviewForm)
+      setReviewMessage({ type: 'success', text: data.message })
+      fetchProductDetail(id) // Refresh product to show new review
+    } catch (err) {
+      setReviewMessage({ type: 'error', text: err.response?.data?.message || 'Failed to submit review' })
+    } finally {
+      setSubmittingReview(false)
+    }
   }
 
   return (
@@ -204,6 +225,114 @@ export default function ProductDetail() {
               Discover a new world of gastronomy and let your creativity flourish with the finest nature has to offer.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── PRODUCT REVIEWS ── */}
+      <section className={styles.reviewsSection}>
+        <div className={styles.reviewsContainer}>
+          <div className={styles.reviewsHeader}>
+            <h2>Customer Reviews</h2>
+            <div className={styles.avgRatingBox}>
+              <span className={styles.avgRatingNum}>{currentProduct.avg_rating || 0}</span>
+              <span className={styles.avgRatingStars}>
+                {[1,2,3,4,5].map(i => (
+                  <span key={i} className={i <= Math.round(currentProduct.avg_rating || 0) ? styles.starFill : styles.starEmpty}>★</span>
+                ))}
+              </span>
+              <span className={styles.avgRatingCount}>({currentProduct.review_count || 0} reviews)</span>
+            </div>
+          </div>
+
+          <div className={styles.reviewsLayout}>
+            {/* Review Form */}
+            <div className={styles.reviewFormCol}>
+              <h3>Write a Review</h3>
+              {!user?.authenticated ? (
+                <div className={styles.loginPrompt}>
+                  <p>You must be logged in to share your experience.</p>
+                  <a href="/accounts/login/" className={styles.loginBtn}>Sign In to Review</a>
+                </div>
+              ) : currentProduct.user_review ? (
+                <div className={styles.userReviewExists}>
+                  <h4>Your Review</h4>
+                  <div className={styles.stars}>
+                    {[1,2,3,4,5].map(i => (
+                      <span key={i} className={i <= currentProduct.user_review.rating ? styles.starFill : styles.starEmpty}>★</span>
+                    ))}
+                  </div>
+                  <h5>{currentProduct.user_review.title}</h5>
+                  <p>{currentProduct.user_review.body}</p>
+                </div>
+              ) : (
+                <form className={styles.reviewForm} onSubmit={submitReview}>
+                  {reviewMessage && (
+                    <div className={`${styles.reviewMsg} ${styles[reviewMessage.type]}`}>
+                      {reviewMessage.text}
+                    </div>
+                  )}
+                  
+                  <div className={styles.ratingSelect}>
+                    <label>Rating</label>
+                    <div className={styles.starSelect}>
+                      {[1,2,3,4,5].map(star => (
+                        <span 
+                          key={star} 
+                          className={star <= reviewForm.rating ? styles.starFill : styles.starEmpty}
+                          onClick={() => setReviewForm({...reviewForm, rating: star})}
+                        >★</span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <input 
+                    type="text" 
+                    placeholder="Review Title" 
+                    required
+                    value={reviewForm.title}
+                    onChange={(e) => setReviewForm({...reviewForm, title: e.target.value})}
+                  />
+                  
+                  <textarea 
+                    placeholder="Share your thoughts..." 
+                    rows="4" 
+                    required
+                    value={reviewForm.body}
+                    onChange={(e) => setReviewForm({...reviewForm, body: e.target.value})}
+                  ></textarea>
+                  
+                  <button type="submit" disabled={submittingReview}>
+                    {submittingReview ? 'Submitting...' : 'Submit Review'}
+                  </button>
+                </form>
+              )}
+            </div>
+
+            {/* Reviews List */}
+            <div className={styles.reviewListCol}>
+              {currentProduct.reviews && currentProduct.reviews.length > 0 ? (
+                currentProduct.reviews.map(review => (
+                  <div key={review.id} className={styles.reviewCard}>
+                    <div className={styles.reviewCardHeader}>
+                      <span className={styles.reviewAuthor}>{review.user_name}</span>
+                      <span className={styles.reviewDate}>{review.created_at.split(' ')[0]}</span>
+                    </div>
+                    <div className={styles.reviewCardStars}>
+                      {[1,2,3,4,5].map(i => (
+                        <span key={i} className={i <= review.rating ? styles.starFill : styles.starEmpty}>★</span>
+                      ))}
+                    </div>
+                    <h5 className={styles.reviewCardTitle}>{review.title}</h5>
+                    <p className={styles.reviewCardBody}>{review.body}</p>
+                  </div>
+                ))
+              ) : (
+                <div className={styles.noReviews}>
+                  <p>No reviews yet. Be the first to review this product!</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 

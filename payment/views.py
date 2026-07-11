@@ -7,7 +7,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from .forms import ShippingAddressForm
+from .form import ShippingAddressForm
 from .models import Order, ShippingAddress, OrderItems
 from cart.cart import Cart
 
