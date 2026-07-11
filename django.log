@@ -1261,3 +1261,26 @@ ERROR 2026-07-04 21:31:05,937 basehttp "GET / HTTP/1.1" 500 106159
 WARNING 2026-07-04 21:31:06,004 log Not Found: /favicon.ico
 WARNING 2026-07-04 21:31:06,004 basehttp "GET /favicon.ico HTTP/1.1" 404 9465
 INFO 2026-07-11 23:04:55,253 autoreload Watching for file changes with StatReloader
+INFO 2026-07-11 23:05:30,769 basehttp "GET /api/user/ HTTP/1.1" 200 24
+INFO 2026-07-11 23:05:30,779 basehttp "GET /api/user/ HTTP/1.1" 200 24
+INFO 2026-07-11 23:05:30,789 basehttp "GET /api/cart/ HTTP/1.1" 200 39
+INFO 2026-07-11 23:05:30,803 basehttp "GET /api/cart/ HTTP/1.1" 200 39
+INFO 2026-07-11 23:05:30,842 basehttp "GET /api/home/ HTTP/1.1" 200 17517
+INFO 2026-07-11 23:05:30,884 basehttp "GET /api/home/ HTTP/1.1" 200 17517
+INFO 2026-07-11 23:05:30,903 basehttp "GET /media/product_images/almonds.jpg HTTP/1.1" 304 0
+INFO 2026-07-11 23:05:30,908 basehttp "GET /media/product_images/walnuts.jpg HTTP/1.1" 304 0
+INFO 2026-07-11 23:05:30,908 basehttp "GET /media/product_images/raisins.jpg HTTP/1.1" 304 0
+INFO 2026-07-11 23:05:30,909 basehttp "GET /media/product_images/cashews.jpg HTTP/1.1" 304 0
+INFO 2026-07-11 23:05:30,909 basehttp "GET /media/product_images/pistachios.jpg HTTP/1.1" 304 0
+INFO 2026-07-11 23:05:30,909 basehttp "GET /media/product_images/mix_seeds.jpg HTTP/1.1" 304 0
+INFO 2026-07-11 23:05:58,633 basehttp "GET /api/user/ HTTP/1.1" 200 24
+INFO 2026-07-11 23:05:58,635 basehttp "GET /api/cart/ HTTP/1.1" 200 39
+INFO 2026-07-11 23:05:58,644 basehttp "GET /api/user/ HTTP/1.1" 200 24
+INFO 2026-07-11 23:05:58,645 basehttp "GET /api/cart/ HTTP/1.1" 200 39
+INFO 2026-07-11 23:05:58,650 basehttp "GET /api/products/?category=&sort=newest&q=&page=1 HTTP/1.1" 200 5025
+INFO 2026-07-11 23:05:58,662 basehttp "GET /api/products/?category=&sort=newest&q=&page=1 HTTP/1.1" 200 5025
+INFO 2026-07-11 23:06:42,703 basehttp "GET /api/products/ec317166-83e9-4dfa-9f60-bc9f338c61c8/ HTTP/1.1" 200 870
+INFO 2026-07-11 23:06:42,710 basehttp "GET /api/products/ec317166-83e9-4dfa-9f60-bc9f338c61c8/ HTTP/1.1" 200 870
+INFO 2026-07-11 23:06:42,793 basehttp "GET /media/product_images/71VND1SiL._SL1500_.jpg HTTP/1.1" 200 167074
+INFO 2026-07-11 23:06:42,801 basehttp "GET /media/product_images/71e-clEXp5L._SL1500_.jpg HTTP/1.1" 200 136317
+INFO 2026-07-11 23:06:42,802 basehttp "GET /media/product_images/71dyRrwkljL._SL1500_.jpg HTTP/1.1" 200 204375

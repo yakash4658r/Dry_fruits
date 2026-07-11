@@ -3,7 +3,7 @@
    Premium Luxury Dry Fruits E-Commerce
    ════════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ─── CSS Custom Properties ─── */
 :root {
@@ -25,8 +25,8 @@
   --emerald-gradient: linear-gradient(135deg, #0A2E28 0%, #16463D 100%);
 
   /* Typography */
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans:  'Outfit', system-ui, sans-serif;
+  --font-serif: 'Inter', system-ui, sans-serif;
+  --font-sans:  'Inter', system-ui, sans-serif;
 
   /* Spacing */
   --section-pad: clamp(60px, 10vw, 120px);
